@@ -17,11 +17,11 @@ init: ## Run terraform init
 
 .PHONY: plan
 plan: ## Run terraform plan
-	terraform plan -out $(TFPLAN)
+	terraform plan -var-file "envs/$(ENV).tfvars" -out $(TFPLAN)
 
 .PHONY: apply
 apply: ## Run terraform apply
-	terraform apply $(TFPLAN) --auto-approve
+	terraform apply -var-file "envs/$(ENV).tfvars" $(TFPLAN) --auto-approve
 
 .PHONY: destroy 
 destroy: ## Run terraform destroy

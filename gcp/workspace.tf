@@ -13,9 +13,14 @@ terraform {
 data "google_client_openid_userinfo" "me" {
 }
 
+data "google_secret_manager_secret_version" "account_id" {
+  project = var.project_id
+  secret  = var.databricks_account_id_secret
+}
+
 resource "databricks_mws_workspaces" "this" {
   provider       = databricks.accounts
-  account_id     = var.databricks_account_id
+  account_id     = data.google_secret_manager_secret_version.account_id.secret_data
   workspace_name = "${var.google_project}-demo"
   location       = data.google_client_config.current.region
 
