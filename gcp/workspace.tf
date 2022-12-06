@@ -4,7 +4,8 @@ variable "databricks_google_service_account" {}
 terraform {
   required_providers {
     databricks = {
-      source = "databrickslabs/databricks"
+      source  = "databricks/databricks"
+      version = "1.6.5"
     }
   }
 }
