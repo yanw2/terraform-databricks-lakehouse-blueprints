@@ -12,6 +12,15 @@ provider "google" {
   ]
 }
 
+terraform {
+  required_providers {
+    databricks = {
+      source  = "databricks/databricks"
+      version = "1.6.5"
+    }
+  }
+}
+
 provider "google" {
   alias           = "service_perimeter_sa"
   project         = var.google_project

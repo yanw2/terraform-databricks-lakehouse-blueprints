@@ -21,7 +21,7 @@ plan: ## Run terraform plan
 
 .PHONY: apply
 apply: ## Run terraform apply
-	terraform apply -var-file "envs/$(ENV).tfvars" $(TFPLAN) --auto-approve
+	terraform apply $(TFPLAN) --auto-approve
 
 .PHONY: destroy 
 destroy: ## Run terraform destroy
