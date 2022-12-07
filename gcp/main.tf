@@ -2,9 +2,7 @@ variable "prefix" {}
 
 variable "env" {}
 
-#variable "network_id" {}
-
-variable "databricks_google_service_account" {}
+variable "network_id" {}
 
 variable "zone" {}
 

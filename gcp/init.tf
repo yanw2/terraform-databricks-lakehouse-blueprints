@@ -12,14 +12,15 @@ provider "google" {
   ]
 }
 
-terraform {
-  required_providers {
-    databricks = {
-      source  = "databricks/databricks"
-      version = "1.6.5"
-    }
-  }
-}
+# Need to uncomment when create infra without workspace
+# terraform {
+#   required_providers {
+#     databricks = {
+#       source  = "databricks/databricks"
+#       version = "1.6.5"
+#     }
+#   }
+# }
 
 provider "google" {
   alias           = "service_perimeter_sa"

@@ -21,7 +21,7 @@ plan: ## Run terraform plan
 
 .PHONY: apply
 apply: ## Run terraform apply
-	terraform apply $(TFPLAN) --auto-approve
+	terraform apply $(TFPLAN)
 
 .PHONY: destroy 
 destroy: ## Run terraform destroy
