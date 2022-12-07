@@ -26,7 +26,7 @@ apply: ## Run terraform apply
 .PHONY: destroy 
 destroy: ## Run terraform destroy
 	$(call user_confirm,Are you sure?)	
-	terraform destroy
+	terraform destroy -var-file "envs/$(ENV).tfvars"
 
 .PHONY: format
 format: ## Run terraform formatter
