@@ -16,3 +16,9 @@ Add the following roles to `cuusoo-sa2@sandbox-cuusoo.iam.gserviceaccount.com`:
 - Databricks Workspace Creator (already exist)
 - Compute Network Viewer
 - Project Viewer
+
+## When destroying
+
+There is a small race conditions when run `terraform destory`. Terraform tries to delete the subnet used by the GKE cluster before it's deleted. The GKE cluster takes time to delete. See the error below.
+
+ Error: Error when reading or editing Subnetwork: googleapi: Error 400: The subnetwork resource 'projects/sandbox-cuusoo/regions/australia-southeast1/subnetworks/gc-subnet-fsl' is already being used by 'projects/sandbox-cuusoo/zones/australia-southeast1-c/instances/gke-db-6905081508629-system-pool-2022-a856fda4-xm9j', resourceInUseByAnotherResource
